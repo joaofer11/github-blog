@@ -5,7 +5,7 @@ export const SearchForm = () => {
 		<S.SearchForm>
 			<h2>Publicações</h2>
 			<span>0 publicações</span>
-			<input type="text" />
+			<input type="text" placeholder="Buscar conteúdo" />
 		</S.SearchForm>
 	)
 }

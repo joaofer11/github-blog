@@ -7,6 +7,11 @@ export const GlobalStyles = createGlobalStyle`
 		box-sizing: border-box;
 	}
 	
+	:focus {
+		outline: 0;
+		box-shadow: 0 0 0 1px ${props => props.theme['blue']};
+	}
+	
 	html {
 		height: 100%;
 		height: -webkit-fill-available;

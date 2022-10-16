@@ -1,19 +1,25 @@
+import { useNavigate } from 'react-router-dom'
+
+import { api } from '../../../../lib/axios'
+import { formatDate, formatDistanceToNow } from '../../../../utils/formatDate'
+
 import * as S from './styles'
 
-export const Post = () => {
-	return (
-		<S.Post>
-			<h1>JavaScript data types and data structures</h1>
-			<span>há um dia atrás</span>
-			<p>
-				Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.
-				Dynamic typing
-				JavaScript is a loosely typed and dynamic language. Variables in JavaScript are not directly associated with any particular value type, and any variable can be assigned (and re-assigned) values of all types:
+interface IPostProps {
+	number: number;
+	title: string
+	body: string
+	createdAt: string;
+}
 
-				let foo = 42; // foo is now a number
-				foo = 'bar'; // foo is now a string
-				foo = true; // foo is now a boolean
-			</p>
+export const Post = ({ number, title, body, createdAt }: IPostProps) => {
+	const navigate = useNavigate()
+	
+	return (
+		<S.Post onClick={() => navigate(`post/${number}`)}>
+			<h1>{title}</h1>
+			<time title={formatDate(createdAt)} dateTime={createdAt}>{formatDistanceToNow(createdAt)}</time>
+			<p>{body}</p>
 		</S.Post>
 	)
 }

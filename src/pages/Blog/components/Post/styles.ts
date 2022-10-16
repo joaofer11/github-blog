@@ -10,13 +10,30 @@ export const Post = styled.div`
 	padding: 2.5rem 2.2rem;
 	background-color: ${props => props.theme['base-post']};
 	
+	& + & {
+		margin-top: 2.5rem;
+	}
+	
+	&:hover {
+		border: 2px solid ${props => props.theme['base-label']};
+		transition: all 0.2s ease-in;
+	}
+	
 	> h1 {
+		width: 80%;
+		
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		
 		font-size: 1.8rem;
 		font-weight: 700;
 		color: ${props => props.theme['base-title']};
 	}
 	
-	> span {
+	> time {
+		justify-self: end;
+		
 		font-size: 1.2rem;
 		color: ${props => props.theme['base-span']};
 	}
@@ -32,4 +49,4 @@ export const Post = styled.div`
 		
 		color: ${props => props.theme['base-text']};
 	}
-`
+`;

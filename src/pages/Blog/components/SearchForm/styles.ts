@@ -30,6 +30,16 @@ export const SearchForm = styled.form`
 		border-radius: 6px;
 		padding: 1.0rem 1.4rem;
 		
+		color: ${props => props.theme['base-text']};
 		background-color: ${props => props.theme['base-input']};
+		
+		&:focus {
+			outline: 0;
+			border: 1px solid ${props => props.theme['blue']};
+		}
+		
+		&::placeholder {
+			color: ${props => props.theme['base-label']};
+		}
 	}
 `
