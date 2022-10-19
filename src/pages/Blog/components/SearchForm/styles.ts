@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const SearchForm = styled.form`
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, auto);
+	grid-template-rows: repeat(3, auto);
 	align-items: center;
 	row-gap: 0.8rem;
 	
@@ -40,6 +40,15 @@ export const SearchForm = styled.form`
 		
 		&::placeholder {
 			color: ${props => props.theme['base-label']};
+		}
+	}
+	
+	> input[type="submit"] {
+		padding: 0.5rem 1.0rem;
+		text-transform: uppercase;
+		
+		&:disabled {
+			opacity: 0.5;
 		}
 	}
 `

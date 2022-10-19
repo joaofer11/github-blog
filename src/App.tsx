@@ -1,8 +1,7 @@
 import { ThemeProvider } from 'styled-components'
 import { BrowserRouter } from 'react-router-dom'
 
-import { GithubUserLoginProvider } from './contexts/GithubUserLoginContext'
-import { GithubIssuesProvider } from './contexts/GithubIssuesContext'
+import { GithubApiDataProvider } from './contexts/GithubApiDataContext'
 
 import { defaultTheme } from './styles/themes/default'
 
@@ -15,11 +14,9 @@ export const App = () => {
          <GlobalStyles />
          
          <BrowserRouter>
-         	<GithubUserLoginProvider>
-	         	<GithubIssuesProvider>
-	         		<Router />
-	         	</GithubIssuesProvider>
-         	</GithubUserLoginProvider>
+         	<GithubApiDataProvider>
+         		<Router />
+         	</GithubApiDataProvider>
          </BrowserRouter>
       </ThemeProvider>
    );

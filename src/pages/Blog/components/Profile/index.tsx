@@ -1,7 +1,5 @@
 import { useContext } from 'react'
-import { githubUserLoginContext } from '../../../../contexts/GithubUserLoginContext'
-
-import { api } from '../../../../lib/axios'
+import { githubApiDataContext } from '../../../../contexts/GithubApiDataContext'
 
 import * as I from '../../../../styles/icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,18 +7,18 @@ import { Tag } from '../../../../components/Tag'
 import * as S from './styles'
 
 export const Profile = () => {
-	const { userLogin } = useContext(githubUserLoginContext)
+	const { user } = useContext(githubApiDataContext)
 	
 	return (
 		<S.InheritedProfile>
 			<S.Avatar>
-				<img src={userLogin.avatar_url} alt="" />
+				<img src={user?.avatar_url} alt="" />
 			</S.Avatar>
 			
-			<h1>{userLogin.name}</h1>
+			<h1>{user?.name}</h1>
 			
 			<button>
-				<a href={userLogin.html_url} target="_blank">Github</a>
+				<a href={user?.html_url} target="_blank">Github</a>
 				
 				<div>
 					<FontAwesomeIcon icon={I.faArrowUpRightFromSquare} />
@@ -28,17 +26,17 @@ export const Profile = () => {
 			</button>
 			
 			<S.Bio>
-				{userLogin.bio}
+				{user?.bio}
 			</S.Bio>
 			
 			<Tag 
-				info={{ label: userLogin.login, icon: I.faGithub, }}
+				info={{ label: user?.login, icon: I.faGithub, }}
 				gridArea="name-user"
 			/>
 			
 			<Tag 
 				info={{ 
-					label: `${userLogin.followers} seguidores`, 
+					label: `${user?.followers} seguidores`, 
 					icon: I.faUserGroup,
 				}}
 				gridArea="followers"

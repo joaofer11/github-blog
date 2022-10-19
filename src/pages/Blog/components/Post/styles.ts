@@ -50,3 +50,11 @@ export const Post = styled.div`
 		color: ${props => props.theme['base-text']};
 	}
 `;
+
+export const WarningMessage = styled.span`
+	display: block;
+	margin-top: 2.0rem;
+	
+	font-size: 1.7rem;
+	text-align: center;
+`

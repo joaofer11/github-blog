@@ -1,17 +1,18 @@
 import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { githubIssuesContext } from '../../contexts/GithubIssuesContext'
+import { githubApiDataContext } from '../../contexts/GithubApiDataContext'
 
 import { Profile } from './components/Profile'
 import { IssueCard } from './components/IssueCard'
-import * as S from './styles'
 
 export const Post = () => {
-	const { issues } = useContext(githubIssuesContext)
+	const { issues } = useContext(githubApiDataContext)
 	const params = useParams()
 	
-	const selectedIssue = issues.find(issue => issue.number === +params.issueNumber)
+	const selectedIssue = issues.find(issue => 
+		issue.number === Number(params.issueNumber)
+	)!
 	
 	return (
 		<>
