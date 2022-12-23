@@ -19,7 +19,7 @@ export const Profile = ({ issueData }: IProfileProps) => {
 				<div>
 					<FontAwesomeIcon icon={I.faChevronLeft} />
 				</div>
-				<Link to="/">voltar</Link>
+				<Link to="/blog">voltar</Link>
 			</button>
 			<button>
 				<div>
